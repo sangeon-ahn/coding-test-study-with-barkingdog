@@ -26,3 +26,7 @@ int main() {
     cout << s;
   }
 }
+
+// 타입을 알아내는 방법
+char c = '0';
+typeid(c) // char
