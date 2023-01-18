@@ -44,5 +44,29 @@ int main() {
 }
 
 // 5. 타입을 알아내는 방법
-char c = '0';
-typeid(c) // char
+int main() {
+  char c = '0';
+  typeid(c); // char
+}
+
+// 6. pair를 sort로 정렬하면 앞에서부터 오름차순 정렬된다.
+int main() {
+  pair<int, int> arr[10];
+  arr[0] = {2, 2};
+  arr[1] = {1, 3};
+  arr[2] = {1, 1};
+  arr[3] = {1, 2};
+
+  sort(arr, arr + 5);
+  for (auto a: arr) {
+    cout << a.first << ' ' << a.second << '\n';
+  }
+}
+
+// 7. string에 char 더할 수 있다.
+int main() {
+  string a = "";
+  cout << a + 'c';
+
+  // "abc" + 'c'는 안된다.
+}
