@@ -30,5 +30,4 @@ int solution(int n, long long l, long long r) {
     
     return answer;
     
-
 }
