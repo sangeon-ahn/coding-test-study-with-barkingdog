@@ -79,3 +79,13 @@ int main() {
   b가 홀수: a^b = a^(2/b) * a^(2/b) * a
   이 두 식을 이용해서 재귀함수 형태로 a^b를 빠르게 구할 수 있다.
 */ 
+
+// 10. 에라토스테네스의 체로 소수 구하기
+const int MXN = 10000;
+vector<bool> seive(MXN, true);
+for (int i = 2; i * i < MXN; i++) {
+    if (!seive[i]) continue;
+    for (int j = i * i; j < MXN; j += i) {
+      seive[j] = false;
+    }
+  }
