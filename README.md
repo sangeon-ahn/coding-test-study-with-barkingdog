@@ -1,1 +1,1 @@
-﻿# 하루에 2백준 1프로그래머스 풀이
+# Daily Problem Solving: Two Backjoon and One Programmers 
