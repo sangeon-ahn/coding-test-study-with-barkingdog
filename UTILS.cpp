@@ -89,3 +89,10 @@ for (int i = 2; i * i < MXN; i++) {
       seive[j] = false;
     }
   }
+
+// 11. map을 vector에 넣는 법
+map<int, int> ma;
+for(int i = 0; i < tangerine.size(); i++){
+    ma[tangerine[i]]++;
+}
+vector<pair<int,int>> vec(ma.begin(), ma.end());
