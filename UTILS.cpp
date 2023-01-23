@@ -18,6 +18,7 @@ vector<string> split(string str, char delimiter) {
 bool compare(string s1, string s2) {
   return s1 < s2;
 }
+
 int main() {
   vector<string> v = {"A910", "145C"};
   sort(v.begin(), v.end(), compare);
@@ -78,7 +79,7 @@ int main() {
   b가 짝수: a^b = a^(2/b) * a^(2/b),
   b가 홀수: a^b = a^(2/b) * a^(2/b) * a
   이 두 식을 이용해서 재귀함수 형태로 a^b를 빠르게 구할 수 있다.
-*/ 
+*/
 
 // 10. 에라토스테네스의 체로 소수 구하기
 const int MXN = 10000;
@@ -96,3 +97,12 @@ for(int i = 0; i < tangerine.size(); i++){
     ma[tangerine[i]]++;
 }
 vector<pair<int,int>> vec(ma.begin(), ma.end());
+
+// 12. 두 수의 최대공약수 구하는 법
+int gcd2(int a, int b)
+{
+	if (a % b == 0)
+    	return b;
+	else
+    	return gcd2(b, a % b);
+}
