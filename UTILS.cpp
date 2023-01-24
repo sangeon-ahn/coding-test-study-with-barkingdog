@@ -106,3 +106,12 @@ int gcd2(int a, int b)
 	else
     	return gcd2(b, a % b);
 }
+
+// 13. set에서 데이터 뽑는 법
+int main() {
+  set<int> s;
+  s.insert(1);
+
+  auto it = s.find(1);
+  cout << *it;
+}
