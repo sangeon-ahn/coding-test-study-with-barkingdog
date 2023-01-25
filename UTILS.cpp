@@ -115,3 +115,56 @@ int main() {
   auto it = s.find(1);
   cout << *it;
 }
+
+// 14. pair 내림차순 정렬
+vector<pair<int, int>> v;
+sort(v.begin(), v.end(), greater<pair<int, int>>());
+
+// 15. 조합 구하기. ex)5개 중 2개 고르기
+    int weights[5] = {1, 2, 3, 4, 5};
+    vector<int> v(5, 1);
+    v[0] = 0;
+    v[1] = 0;
+    do {
+        vector<int> temp;
+        for (int i = 0; i < v.size(); i++) {
+            if (v[i] == 0) {
+                temp.push_back(weights[i]);
+            }
+        }
+    } while(next_permutation(v.begin(), v.end()));
+
+// 16. 순열 구하기. ex) 두 자리가 있고, 각 자리는 3가지의 경우의 수가 있으므로,
+  // 00 ~ 22까지 총 9개의 순열 생성
+for (int j = 0; j < 9; j++) {
+  int brute = j;
+  vector<int> orders;
+
+  for (int k = 0; k < 2; k++) {
+      int idx = brute % 3;
+      brute /= 3;
+      orders.push_back(dist[idx]);
+  }
+}
+
+// 17. 재귀 및 dfs
+ll POW(ll a, ll b, ll m) {
+  if (b == 1) return a % m;
+
+  // a^b = a^(b/2) + a^(b/2)이다. 그래서 반쪽에 해당하는 val를 구한 후, val * val을 해준다.
+  ll val = POW(a, b/2, m);
+  val = val * val % m;
+  
+  // 짝수인 경우에는 구한 값을 바로 리턴하지만, b가 홀수면 한번 더 곱한걸 나누고 리턴한다.
+  if (b % 2 == 0) return val;
+  return val * a % m;
+}
+
+int main() {
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  ll a, b, c;
+
+  cin >> a >> b >> c;
+  cout << POW(a, b, c);
+}
