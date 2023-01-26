@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+// 풀이성공, 22분.
 /*
   숫자 무리를 음수, 0, 양수로 나눈 후,
   각각을 새로운 큐에 집어넣는다.
@@ -48,11 +49,13 @@ int main() {
     ans += a * b;
   }
 
+  // 음수가 남아 있는데 0이 있으면 없애주기.
   while (!minusPq.empty() && zeroCount > 0) {
     minusPq.pop();
     zeroCount--;
   }
 
+  // 못 없앴으면 더해주기.
   while (!minusPq.empty()) {
     ans += minusPq.top(); minusPq.pop();
   }
