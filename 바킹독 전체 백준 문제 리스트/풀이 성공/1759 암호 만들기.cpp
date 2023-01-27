@@ -4,7 +4,7 @@
 */
 #include <bits/stdc++.h>
 using namespace std;
-
+// 풀이 성공. 20분 소요
 int L, C;
 char arr[20];
 
