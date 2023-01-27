@@ -6,7 +6,7 @@ using namespace std;
   해당 종이에 적힌 모든 숫자가 -1, 0, 1중 하나로 채워져 있으면 전역변수 값에 +1을 해준다.
   모든 dfs가 끝난 후 결과를 출력한다.
 */
-
+// 풀이 성공. 29분 소요
 int N;
 int board[3000][3000];
 map<int, int> m;
@@ -32,7 +32,6 @@ void dfs(int x, int y, int width) {
   bool isAllSame = check(x, y, width);
 
   if (isAllSame) {
-    // cout << board[x][y];
     m[board[x][y]]++;
     return;
   }
