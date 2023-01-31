@@ -3,7 +3,7 @@ using namespace std;
 
 int N;
 int dp[1000010];
-int mod = 1000000;
+int mod = 10e9;
 int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
