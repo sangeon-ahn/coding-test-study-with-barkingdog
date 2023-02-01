@@ -170,3 +170,20 @@ int main() {
 }
 
 // 18. C++은 배열, 벡터의 -1 인덱스 접근이 안된다.
+
+// 19. binary_search, lower_bound, upper_bound
+int main() {
+  int arr[5] = {1, 2, 3, 4, 5};
+  /*
+    binary_search(from, to, value): from에서 to 사이의 수 중에 value가 있으면 true, 없으면 false 리턴.
+    binary_search(arr, arr + 5, 3) = true;
+    binary_search(arr, arr + 5, 6) = false;
+  */ 
+
+ /*
+  lower_bound(from, to, value): from에서 to 사이의 수 중에 value와 같은 수 있으면 해당 수의 주소 반환. 없으면 value보다 다음으로 큰 수의 주소 출력.
+  
+  upper_bound(from, to, value): from에서 to 사이의 수 중에 value보다 다음으로 큰 수의 주소 출력.
+ */
+}
+
