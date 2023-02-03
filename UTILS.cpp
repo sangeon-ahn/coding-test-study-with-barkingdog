@@ -187,3 +187,9 @@ int main() {
  */
 }
 
+// 20. min은 여러 수 비교도 할 수 있다.
+int main() {
+  int a = min({1, 2, 3, 5});
+  cout << a;
+}
+
