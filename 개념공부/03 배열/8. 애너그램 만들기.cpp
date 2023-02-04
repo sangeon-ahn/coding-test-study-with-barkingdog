@@ -3,26 +3,26 @@
 
 using namespace std;
 
-int main() {
-  ios::sync_with_stdio(0);
-  cin.tie(0);
+// int main() {
+//   ios::sync_with_stdio(0);
+//   cin.tie(0);
 
-  string a, b;
-  cin >> a >> b;
+//   string a, b;
+//   cin >> a >> b;
 
-  int ans = 0;
-  int arr[26] = {};
+//   int ans = 0;
+//   int arr[26] = {};
 
-  for (auto c: a) arr[c - 'a']++;
-  for (auto c: b) arr[c - 'a']--;
+//   for (auto c: a) arr[c - 'a']++;
+//   for (auto c: b) arr[c - 'a']--;
 
-  for (auto num: arr) {
-    if (num < 0) ans += -num;
-    else ans += num;
-  }
+//   for (auto num: arr) {
+//     if (num < 0) ans += -num;
+//     else ans += num;
+//   }
 
-  cout << ans;
-}
+//   cout << ans;
+// }
 
 //바킹독 풀이
 // 두 문자열에 대해 각각 배열을 만드는게 아니라 2차원 배열로 만들었다.
