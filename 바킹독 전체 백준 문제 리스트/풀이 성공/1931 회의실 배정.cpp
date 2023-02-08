@@ -22,19 +22,18 @@ int main() {
   for (int i = 0; i < N; i++) {
     int a, b;
     cin >> a >> b;
-    v.push_back({a, b});
+    v.push_back({b, a});
   }
 
-  sort(v.begin(), v.end(), compare);
+  sort(v.begin(), v.end());
 
-  int end_time = 0;
+  long long end_time = 0;
   int ans = 0;
 
   for (auto a: v) {
-    cout << a.first << a.second << '\n';
-    if (end_time <= a.first) {
+    if (end_time <= a.second) {
       ans++;
-      end_time = a.second;
+      end_time = a.first;
     }
   }
 
