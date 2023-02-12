@@ -193,3 +193,20 @@ int main() {
   cout << a;
 }
 
+// 21. if 문에서 {} 안쓰고 줄바꿈 없이 바로 적는 경우, 세미콜론 기준으로 1개 이후의 명령어는 if문 밖에 있는걸로 판정된다.
+for (int i = 0; i < 10; i++) {
+  if (true) int a = 1; continue;
+  /*
+  윗 줄은 아래 코드와 같다.
+    if (true) {
+      int a = 1;
+    }
+    continue;
+  */
+
+  // 의도대로 하려면 아래처럼 해야 한다.
+  if (true) {
+    int a = 1;
+    continue;
+  }
+}
