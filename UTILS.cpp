@@ -210,3 +210,6 @@ for (int i = 0; i < 10; i++) {
     continue;
   }
 }
+
+// 22. vector를 sort할 때 각 인덱스별로 비교한다.
+// 
