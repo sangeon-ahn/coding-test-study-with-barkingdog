@@ -8,12 +8,13 @@ using namespace std;
   x
 */
 
-bool canTree(deque<int> & d) {
+bool canTree(deque<int> d) {
   if (d.size() == 1) return true;
+  
   // mid 인덱스.
   int mid = d.size() / 2;
 
-  if (d.size() != 1 && d[mid] != 1) {
+  if (d[mid] != 1) {
     bool flag = true;
 
     for (int i = 0; i < d.size(); i++) {
