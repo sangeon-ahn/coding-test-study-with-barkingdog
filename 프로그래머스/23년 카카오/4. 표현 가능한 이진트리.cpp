@@ -49,7 +49,7 @@ bool canTree(long long number) {
     temp <<= 1;
   }
 
-  long long diff = temp - size - 1;
+  long long diff = (temp - 1) - size;
 
   while (diff--) {
     binary.push_front(0);
