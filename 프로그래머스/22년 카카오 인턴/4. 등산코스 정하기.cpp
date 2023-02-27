@@ -1,36 +1,57 @@
 #include <bits/stdc++.h>
-// 오답
+// 50% 정답, 나머지 시간초과
 using namespace std;
 vector<pair<int, int>> graph[50001];
 bool vis[50001];
 
-int minIntensity;
-int minSummit;
+int minIntensity = 10000100;
+int minSummit = 100000;
+vector<int> Gates;
+vector<int> Summits;
+bool isGate(int pos) {
+    for (int i = 0; i < Gates.size(); i++) {
+        if (Gates[i] == pos) return true;
+    }
+    return false;
+}
 
-void dfs(int pos, int maxDist, int summit) {
-    if (summit == pos) {
+bool isSummit(int pos) {
+    for (int i = 0; i < Summits.size(); i++) {
+        if (Summits[i] == pos) return true;
+    }
+    return false;
+}
+
+void dfs(int pos, int maxDist) {
+    if (isSummit(pos)) {
         // maxDist가 minIntensity보다 작으면 교체
         if (maxDist < minIntensity) {
             minIntensity = maxDist;
-            minSummit = summit;
+            minSummit = pos;
         }
         // 같은데 summit이 더 작으면 교체
-        else if (maxDist == minIntensity && summit < minSummit) {
-            minSummit = summit;
+        else if (maxDist == minIntensity && pos < minSummit) {
+            minSummit = pos;
         }
         return;
     }
     
-    for (pair<int, int> p : graph[pos]) {
-        if (vis[p.first]) continue;
+    for (auto p : graph[pos]) {
+        if (vis[p.first] || isGate(p.first)) continue;
         vis[p.first] = true;
         int newMaxDist = max(maxDist, p.second);
-        dfs(p.first, newMaxDist, summit);
+        dfs(p.first, newMaxDist);
+        vis[p.first] = false;
     }
 }
 
 vector<int> solution(int n, vector<vector<int>> paths, vector<int> gates, vector<int> summits) {
     vector<int> answer;
+    sort(paths.begin(), paths.end());
+    sort(gates.begin(), gates.end());
+    sort(summits.begin(), summits.end());
+    Gates = gates;
+    Summits = summits;
     
     for (vector<int> path: paths) {
         int v1 = path[0];
@@ -42,17 +63,17 @@ vector<int> solution(int n, vector<vector<int>> paths, vector<int> gates, vector
     }
     
     for (int gate : gates) {
-        for (int summit : summits) {
-            vis[gate] = true;
-            for (auto p: graph[gate]) {
-                vis[p.first] = true;
-                dfs(gate, p.second, summit);
-                vis[p.first] = false;
-            }
+        vis[gate] = true;
+        for (auto p: graph[gate]) {
+            if (isGate(p.first)) continue;
+            vis[p.first] = true;
+            dfs(p.first, p.second);
+            vis[p.first] = false;
         }
+        vis[gate] = false;
     }
     
-    return {minIntensity, minSummit};
+    return {minSummit, minIntensity};
     
     return answer;
 }
