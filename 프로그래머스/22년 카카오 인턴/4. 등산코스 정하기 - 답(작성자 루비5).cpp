@@ -11,8 +11,6 @@ using namespace std;
     4. MAX값을 생성하려면 1000000 같은 숫자가 아니라 0x3f3f3f3f나 INT_MAX를 사용하면 된다.
 
     5. 다익스트라 알고리즘을 pq를 이용해서 구할 수 있다.
-
-    6. 
 */
 vector<int> solution(int n, vector<vector<int>> paths, vector<int> gates, vector<int> summits) {
     vector<int> check_gate(n + 1);
