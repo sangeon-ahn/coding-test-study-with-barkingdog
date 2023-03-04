@@ -4,7 +4,7 @@ using namespace std;
 
 int dx[4] = {1, 0, -1, 0};
 int dy[4] = {0, 1, 0, -1};
-
+// 70% 정답.
 struct state {
     pair<int, int> a;
     pair<int, int> b;
