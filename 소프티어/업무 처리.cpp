@@ -23,18 +23,22 @@ void solve(int R) {
 			// 부서장이면 일 완료하기
 			if (n == 0) {
 				if (day % 2 == 0 && !rightQ[n].empty()) {
+			
 					done += rightQ[n].front();
 					rightQ[n].pop();
 				}
 				else if (day % 2 != 0 && !leftQ[n].empty()) {
+					cout << "HI2";
 					done += leftQ[n].front();
 					leftQ[n].pop();
 				}
 			}
 
 			for (int new_n : tree[n]) {
+				// cout << new_n << ' ';
 				// 말단 아니면 홀짝 맞춰서 부모노드에 일 올리기
-				if (!tree[new_n].size()) {
+				if (tree[new_n].size()) {
+				
 					// 짝수날이면
 					if (day % 2 == 0) {
 						// 부모 노드의 왼쪽 자식이면 new_n의 오른쪽 노드에 있는걸 부모의 왼쪽 큐에 넣는다. 
