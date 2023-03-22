@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+// 풀이실패
 int dx[4] = {1, 0, -1, 0, 1, 0, -1, 0};
 int dy[4] = {0, 1, 0, -1, 0, 1, 0, -1};
 bool isVisited[4][4][131072];
@@ -46,11 +46,11 @@ int solution(vector<vector<int>> board, int r, int c) {
                 if (selectedChar != 0 && board[nx][ny] != selectedChar) continue;
                 
                 // 이미 도달했었던 위치-상태면 패스
-                if (isVisited[nx][ny][curState & (4 * nx + ny)]) continue;
+                if (isVisited[nx][ny][curState | (4 * nx + ny)]) continue;
                 
                 // 가도 된다.
                 else {
-                    int newState = curState & (4 * nx + ny);
+                    int newState = curState | (4 * nx + ny);
                     isVisited[nx][ny][newState] = true;
                     
                     // 캐릭터 지정이 안된 상태였을 때
@@ -84,12 +84,12 @@ int solution(vector<vector<int>> board, int r, int c) {
                 }
                 
                 // 일단 상태 체크
-                if (isVisited[nx][ny][curState & (4 * nx + ny)]) continue;
+                if (isVisited[nx][ny][curState | (4 * nx + ny)]) continue;
                 
                 // 밟은 땅의 값이 0일 때
                 if (board[nx][ny] == 0) {
                     // 움직인 횟수만 증가시키고 다시 넣으면 된다.
-                    int newState = curState & (4 * nx + ny);
+                    int newState = curState | (4 * nx + ny);
                     isVisited[nx][ny][newState] = true;
                     q.push({{{nx, ny}, newState, {selectedChar, moveCount + 1}}})
                 }
