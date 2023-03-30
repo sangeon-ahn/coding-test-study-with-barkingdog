@@ -13,15 +13,15 @@ void backtracking(int order) {
         cout << '\n';
         return;
     }
-    
+
     for (int i = 1; i <= N; i++) {
         if (order == 0) {
             arr[order] = i;
-            backtracking(order+1);
+            backtracking(order + 1);
         }
         else if (arr[order - 1] <= i) {
             arr[order] = i;
-            backtracking(order+1);    
+            backtracking(order+1);
         }
     }
 }

@@ -13,8 +13,8 @@ void backtracking(int order) {
         return;
     }
     
-    for (int i = 0; i < N; i++) {
-        arr[order] = i+1;
+    for (int i = 1; i <= N; i++) {
+        arr[order] = i;
         backtracking(order+1);
     }
 }
