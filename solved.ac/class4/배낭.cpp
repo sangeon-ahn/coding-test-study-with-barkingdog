@@ -1,10 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isUsed[100010][101];
+vector<vector<bool>> isUsed(100010, vector<bool>(101));
 int N, K;
 int dp[100010];
 vector<pair<int, int>> items;
+
 int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
@@ -17,11 +18,11 @@ int main() {
   }
 
   sort(items.begin(), items.end());
-  cout << '\n';
+  // cout << '\n';
   
-  for (auto a: items) {
-    cout << a.first << ' ' << a.second << '\n';
-  }
+  // for (auto a: items) {
+  //   cout << a.first << ' ' << a.second << '\n';
+  // }
 
   for (int i = items[0].first; i <= K; i++) {
     int temp = -1;
@@ -35,13 +36,14 @@ int main() {
     }
 
     if (temp != -1) {
+      isUsed[i] = isUsed[i - items[temp].first];
       isUsed[i][temp] = true;
     }
+    // cout << "i: " << i << "temp: " << temp << '\n';
   }
-
   int mx = 0;
   for (int i = 0; i <= K; i++) {
-    cout << dp[i] << ' ';
+    // cout << "i: " << i << " value: " << dp[i] << '\n';
     if (mx < dp[i]) mx = dp[i];
   }
   cout << mx;
