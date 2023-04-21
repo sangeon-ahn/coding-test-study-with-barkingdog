@@ -1,20 +1,46 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int a, b;
-/*
-  일단 수열의 특징은 전진성이다.
-  따라서 이전 값과 연관이 있다.
-  우선 공통으로 속하는 문자를 얻는다.
-  A:2,C:1,K:1
-  dp[i] = dp[i-1] + string[i] , dp[i]: i번째 문자를 포함한 
-*/
-
-
+string s1, s2;
+int board[1010][1010];
 
 int main() {
-  ios::sync_with_stdio(0);
-  cin.tie(0);
-  cin >> a >> b;
-  
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cin >> s1 >> s2;
+    
+    for (int i = 0; i < s1.size(); i++) {
+        for (int j = 0; j < s2.size(); j++) {
+            if (s1[i] == s2[j]) board[i][j] = 1;
+            cout << board[i][j] << ' ';
+        }
+        cout << '\n';
+    }
+    
+    int sum1 = 0;
+    int idx1 = 0;
+    for (int i = 0; i < s1.size(); i++) {
+      if (idx1 == s2.size()) break;
+        for (int j = idx1; j < s2.size(); j++) {
+            if (board[i][j] == 1) {
+                sum1 += 1;
+                idx1 = j + 1;
+                break;
+            }
+        }
+    }
+
+    int sum2 = 0;
+    int idx2 = 0;
+    for (int i = 0; i < s2.size(); i++) {
+      if (idx2 == s1.size()) break;
+      for (int j = idx2; j < s1.size(); j++) {
+        if (board[j][i] == 1) {
+          sum2++;
+          idx2 = j + 1;
+          break;
+        }
+      }
+    }
+    cout << max(sum1, sum2);
 }
